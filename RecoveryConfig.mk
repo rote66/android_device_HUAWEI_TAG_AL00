@@ -4,7 +4,7 @@
 #RECOVERY_VARIANT=twrp
 
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/TCL/Escape_CM/rootdir/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/HUAWEI/TAG_AL00/rootdir/recovery.fstab
 
 # TWRP stuff
 ifeq ($(RECOVERY_VARIANT), twrp)

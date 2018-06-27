@@ -75,10 +75,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_NAME := 1461412683
 BOARD_RAMDISK_OFFSET := 0x03f88000
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --tags_offset 0x0df88000 --board 1450664547 
 #TARGET_KERNEL_CONFIG := AL00_defconfig
 #TARGET_KERNEL_SOURCE := kernel/HUAWEI/TAG_AL00
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 #KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 # end of commented lines
@@ -96,6 +95,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 11206656000
 BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 #pagesize * 64
 BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --tags_offset 0x0df88000 --board 1450664547 
 
 #system.prop
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
@@ -179,7 +179,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 WITH_DEXPREOPT=false
 
 #SELinux: MTK added
-BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
+#BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 
 # Sepolicy hack for old kernel, our mt6735 version is 29
 POLICYVERS := 29
@@ -187,3 +187,8 @@ POLICYVERS := 29
 # Link against libxlog
 TARGET_LDPRELOAD += libxlog.so
 
+# Hack for build
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
+# do not check sensors for CM 13
+TARGET_NO_SENSOR_PERMISSION_CHECK := true

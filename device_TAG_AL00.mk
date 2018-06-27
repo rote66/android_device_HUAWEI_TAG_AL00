@@ -40,7 +40,7 @@ PRODUCT_COPY_FILES += \
 	device/HUAWEI/TAG_AL00/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
 	device/HUAWEI/TAG_AL00/rootdir/meta_init.modem.rc:root/factory_init.rc \
 	device/HUAWEI/TAG_AL00/rootdir/meta_init.modem.rc:root/factory_init.project.rc \
-    device/huawei/gr3/rootdir/init.rc:root/init.rc \
+    device/HUAWEI/TAG_AL00/rootdir/init.rc:root/init.rc \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
