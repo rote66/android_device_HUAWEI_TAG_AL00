@@ -14,8 +14,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/HUAWEI/TAG_AL00/device_TAG_AL00.mk)
 
 # Configure dalvik heap
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)  
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
@@ -24,7 +23,7 @@ TARGET_SCREEN_WIDTH := 720
 PRODUCT_DEVICE := TAG_AL00
 PRODUCT_NAME := lineage_TAG_AL00
 PRODUCT_BRAND := HUAWEI
-PRODUCT_MODEL := HUAWEI TAG_AL00
+PRODUCT_MODEL := HUAWEI TAG-AL00
 PRODUCT_MANUFACTURER := HUAWEI
 
 PRODUCT_DEFAULT_LANGUAGE := zh

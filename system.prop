@@ -1,7 +1,7 @@
 #
 # system.prop for ono
 #
-# from device/huaqin/hq6753_66t_b2b_l1/system.prop
+# from device/ginreen/ginr6735_65c_l1/system.prop
 #
 #
 # system.prop for generic sdk
@@ -31,25 +31,12 @@ wifi.tethering.interface=ap0
 #
 
 ro.opengles.version=196608
+##ro.kernel.qemu=1
+##ro.kernel.qemu.gles=0
 
 wifi.direct.interface=p2p0
-dalvik.vm.heapgrowthlimit=128m
-dalvik.vm.heapsize=256m
-dalvik.vm.checkjni=false
-
-# USB MTP WHQL
-ro.sys.usb.mtp.whql.enable=0
-
-# Power off opt in IPO
-sys.ipo.pwrdncap=2
-
-ro.sys.usb.storage.type=mtp,mass_storage
-
-# USB BICR function
-ro.sys.usb.bicr=yes
-
-# USB Charge only function
-ro.sys.usb.charging.only=yes
+#dalvik.vm.heapgrowthlimit=128m
+#dalvik.vm.heapsize=256m
 
 # audio
 ro.camera.sound.forced=0
@@ -74,21 +61,10 @@ ro.sf.lcd_density=320
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_response_time=1
 
-# SoundRecorder save file to sdcard
-persist.sys.primarysd=0
+persist.sys.isUsbOtgEnabled=true
 
-ril.specific.sm_cause=0
-ril.external.md=1
-ril.current.share_modem=1
-ril.first.md=1
-ril.radiooff.poweroffMD=0
-ro.telephony.sim.count=2
-persist.radio.default.sim=0
-persist.radio.multisim.config=dsda
-telephony.lteOnCdmaDevice=1
-persist.gemini.sim_num=1
-ro.dual.sim.phone=false
-ro.hq.sim.dual_imsi=1
-ro.hq.sim.dual_imsi.remapn=1
-ro.hq.sim.dual_imsi.smsc=1
+ro.mtk_perfservice_support=1
 
+persist.logd.logpersistd=logcatd
+
+ro.telephony.default_network=9

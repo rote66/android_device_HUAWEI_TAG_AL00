@@ -1,0 +1,38 @@
+From 45587bb7db39a02382abd143ac02660df0fc072a Mon Sep 17 00:00:00 2001
+From: rote66 <pontifex23872388@gmail.com>
+Date: Thu, 8 Feb 2018 19:18:50 +0100
+Subject: [PATCH 2/2] Enable Tethering
+
+Signed-off-by: rote66 <pontifex23872388@gmail.com>
+---
+ server/SoftapController.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ mode change 100755 => 100644 server/SoftapController.cpp
+
+diff --git a/server/SoftapController.cpp b/server/SoftapController.cpp
+old mode 100755
+new mode 100644
+index 4a7c8d7..8461e43
+--- a/server/SoftapController.cpp
++++ b/server/SoftapController.cpp
+@@ -53,7 +53,7 @@ using android::base::WriteStringToFile;
+ #include "wpa_ctrl.h"
+ #endif
+ 
+-std:: string hostapd_unix_file(StringPrintf("/data/misc/wifi/hostapd/wlan0"));
++std:: string hostapd_unix_file(StringPrintf("/data/misc/wifi/hostapd/ap0"));
+ #ifdef LIBWPA_CLIENT_EXISTS
+ static const char HOSTAPD_DHCP_DIR[]    = "/data/misc/dhcp";
+ #endif
+@@ -289,7 +289,7 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+             "hw_mode=%c\n"
+             "ignore_broadcast_ssid=%d\n"
+             "wowlan_triggers=any\n",
+-            argv[2], argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
++            /*argv[2]*/"ap0", argv[3], channel, (channel <= 14) ? 'g' : 'a', hidden));
+ 
+     std::string fbuf;
+     if (argc > 7) {
+-- 
+2.16.1
+

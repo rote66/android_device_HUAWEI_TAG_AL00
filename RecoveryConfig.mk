@@ -1,4 +1,4 @@
-#Do not use this device to build recovery
+#DO NOT USE THIS TREE TO BUILD REC
 # Recovery
 # Uncomment RECOVERY_VARIANT to build twrp
 #RECOVERY_VARIANT=twrp

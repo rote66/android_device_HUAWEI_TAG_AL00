@@ -41,7 +41,7 @@ on post-fs-data
     mknod /dev/wmtWifi c 153 0
     chmod 0660 /dev/wmtWifi
     chown system system /dev/wmtWifi
-
+	
 #Camera
     chmod 0660 /dev/GAF001AF
     chown system camera /dev/GAF001AF
@@ -54,7 +54,16 @@ on post-fs-data
 
 	chmod 0660 /dev/BU64745GWZAF
     chown system camera /dev/BU64745GWZAF
+    
+	chmod 0660 /dev/LC898122AF 
+    chown system camera /dev/LC898122AF 
 
+	chmod 0660 /dev/AK7345AF 
+    chown system camera /dev/AK7345AF 
+   
+   chmod 0660 /dev/DW9761AF 
+    chown system camera /dev/DW9761AF 
+	
 #SMB
     chown system system /proc/smb/ScreenComm
     chmod 0660 /proc/smb/ScreenComm
@@ -78,10 +87,6 @@ on post-fs-data
     mkdir /data/misc/wpa_supplicant 0770 wifi wifi
     chown wifi wifi /data/misc/wifi
 
-#  ET300
-    chmod 666 /dev/esfp0
-    chown system system /dev/esfp0
-
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
     chown system /dev/ttyGS0
@@ -97,28 +102,25 @@ on post-fs-data
     chown bluetooth bluetooth /dev/ampc0
     chmod 0660 /dev/ampc0
 
+# for gesture
+    chown system system /sys/devices/mx_tsp/gesture_control
+    chown system system /sys/devices/mx_tsp/gesture_data
+
+# for notification light
+    chown system system /sys/devices/mx_leds/leds_mode
+
+#FLYME_EDIT:zhouyueguo@SHELL.PowerSavingMode.Feature Permissions add for power saving mode {@
+#Permissions for power saving mode
+        chown system system /sys/power/power_mode
+        chmod 0660 /sys/power/power_mode
+#@}
+
 #
 # Connectivity related device nodes & configuration (end)
 #
 
 # Encrypt phone function
     setprop vold.post_fs_data_done 1
-
-    chmod 0666 /dev/exm0
-
-on init
-    # Refer to http://source.android.com/devices/tech/storage/index.html
-    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
-    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
-    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
-    #           Developers expect data stored in these locations to be available over long periods of time."
-    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
-    #
-    # export SECONDARY_STORAGE /storage/sdcard1
-
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-    class late_start
-    disabled
 
 #
 # Connectivity related services (Begin)

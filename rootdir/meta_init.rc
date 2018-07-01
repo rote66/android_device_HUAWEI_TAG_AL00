@@ -277,9 +277,6 @@ on post-fs-data
     chmod 0777 /dev/mt9p012
     chmod 0777 /dev/mt6516_jpeg
     chmod 0777 /dev/FM50AF
-    chmod 0777 /dev/ZC533AF
-    chmod 0777 /dev/BU6424AF
-    chmod 0777 /dev/IMX164AF
 
 
 
