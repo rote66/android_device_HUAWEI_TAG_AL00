@@ -15,7 +15,7 @@ Battery | 2200 mAh
 Display | 5.0" 720 x 1280 px
 Camera  | 13 MP, f/2.0, autofocus
 
-![Huawei Enjoy 5s](http://www.pconline.com.cn/images/html/viewpic_pconline.htm?http://img.pconline.com.cn/images/product/6085/608591/q.jpg)
+![Huawei Enjoy 5s](http://img.pconline.com.cn/images/product/6085/608591/q.jpg)
 
 Device for TAG-AL00
 
