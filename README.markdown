@@ -77,7 +77,7 @@ Current state
 
 - Wifi is working
 
-- Audio is working
+- Audio (From official lib)
 
 - Telephony is working 
 
@@ -95,12 +95,18 @@ Current state
 
 - Sensors
 
+- Camera
+
+- Flash Light
+
 Known Issues
 
 -------------
 
-- camera
+- OMX
+
+- VideoRecoder
 
 - fingerprint
 
-- cdma
+- C2K (CDMA)
