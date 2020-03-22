@@ -26,6 +26,7 @@ PRODUCT_COPY_FILES += \
     device/HUAWEI/TAG_AL00/rootdir/init.target.rc:root/init.target.rc \
     device/HUAWEI/TAG_AL00/rootdir/init.mt6735.rc:root/init.mt6735.rc \
     device/HUAWEI/TAG_AL00/rootdir/init.ssd.rc:root/init.ssd.rc \
+    device/HUAWEI/TAG_AL00/rootdir/init.neusoft.rc:root/init.neusoft.rc \
     device/HUAWEI/TAG_AL00/rootdir/init.xlog.rc:root/init.xlog.rc \
     device/HUAWEI/TAG_AL00/rootdir/init.usb.rc:root/init.usb.rc \
     device/HUAWEI/TAG_AL00/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
@@ -77,8 +78,11 @@ PRODUCT_PACKAGES += \
     libmtk_symbols \
     libperfservicenative \
     libcurl \
-    fingerprintd \
-    Snap  
+    Snap \
+    fingerprintd 
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
 # LiveDisplay
 PRODUCT_PACKAGES += libjni_livedisplay

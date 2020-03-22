@@ -258,3 +258,4 @@ ro.config.hw_coop_subid=true
 persist.sys.bv=0.7
 ro.sys.project.huawei=AL
 ro.config.fp_tip_hide_abnormal=true
+ro.hardware.fingerprint=fpc
