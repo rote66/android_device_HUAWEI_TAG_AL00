@@ -40,6 +40,14 @@ on post-fs
     # Load WiFi Driver
     #insmod /system/lib/modules/wlan.ko
 
+	#add by huaqin zam for fingerprint teei
+	mkdir /data/thh 0755 root shell
+	mkdir /data/thh/init 0755 root shell
+	mkdir /data/thh/init/tee1 0755 root shell
+	mkdir /data/thh/init/tee2 0755 root shell
+	mkdir /data/thh/init/tee3 0755 root shell
+	mkdir /data/thh/init/tee4 0755 root shell
+
 #
 # Connectivity related modules and character device nodes (Ends)
 #

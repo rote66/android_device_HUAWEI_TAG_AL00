@@ -67,13 +67,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 
-#PRODUCT_PACKAGES += \
-#    libion \
-#    libmockdrmcryptoplugin \
-#    libaudio-resampler \
-#    libtinycompress \
-#    libtinyxml
-
 # RIL
 PRODUCT_PACKAGES += \
     gsm0710muxd
@@ -83,7 +76,9 @@ PRODUCT_PACKAGES += \
     libxlog \
     libmtk_symbols \
     libperfservicenative \
-    libcurl
+    libcurl \
+    fingerprintd \
+    Snap  
 
 # LiveDisplay
 PRODUCT_PACKAGES += libjni_livedisplay
@@ -113,6 +108,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/HUAWEI/TAG_AL00/rootdir/etc/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=0
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -122,13 +121,6 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinyxml
 
-# Supplementary/Addon
-PRODUCT_PACKAGES += Snap 
-
-#    EngineerMode \
-#libmeizucamera
-
-#PRODUCT_PACKAGES += stlport_shared
 PRODUCT_COPY_FILES += \
     prebuilts/ndk/current/sources/cxx-stl/stlport/libs/arm64-v8a/libstlport_shared.so:system/lib64/libstlport.so \
     prebuilts/ndk/current/sources/cxx-stl/stlport/libs/armeabi-v7a/libstlport_shared.so:system/lib/libstlport.so
@@ -146,18 +138,5 @@ persist.service.acm.enable=0 \
 persist.sys.usb.config=mtp \
 ro.mount.fs=EXT4 \
 debug.hwui.render_dirty_regions=false \
-ro.sf.lcd_density=320 \
-persist.radio.multisim.config=dsds \
-ro.mtk_lte_support=1 \
-ro.telephony.ril_class=MT6735 \
-ro.telephony.ril.config=fakeiccid \
-ro.telephony.sim.count=2 \
-persist.gemini.sim_num=2 \
-ril.current.share_modem=2 \
-ro.mtk_gps_support=1 \
-ro.mtk_agps_app=1 \
-persist.debug.xlog.enable=1 \
+ro.sf.lcd_density=320 
 
-# These additionals go to /system/build.prop
-ADDITIONAL_BUILD_PROPERTIES += \
-ro.xtreme.romer=wanyikai0791 \

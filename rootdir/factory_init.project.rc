@@ -78,3 +78,7 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 # Connectivity related services (End)
 #
 
+#remove ets port by lupingzhong 20150731
+#via_ets,adb,acm
+#on property:ro.boot.usbconfig=0
+#    write /sys/class/usb_rawbulk/ets/enable 1

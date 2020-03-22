@@ -4,6 +4,7 @@ import init.no_ssd.rc
 import init.ssd_nomuser.rc
 import init.fon.rc
 import init.trustonic.rc
+#import init.neusoft.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -26,6 +27,8 @@ on early-init
     mkdir /mnt 0775 root system
 
 on init
+	setprop factory.composite.usb.pid 2006
+	setprop factory.composite.usb.func mass_storage,adb,acm
 
 sysclktz 0
 
@@ -138,6 +141,8 @@ on fs
     exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/logo			
     exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para					
     write /proc/bootprof "INIT:Mount_END"
+#add by zym
+   mkdir /log mount ext4 emmc@log /log
 
 on post-fs
     # once everything is setup, no need to modify /

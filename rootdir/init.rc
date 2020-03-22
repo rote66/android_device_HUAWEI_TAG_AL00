@@ -11,7 +11,7 @@ import /init.usb.configfs.rc
 import /init.${ro.zygote}.rc
 import /init.trace.rc
 # Include CM's extra init file
-import /init.aosp.rc
+import /init.cm.rc
 
 
 on early-init
@@ -353,6 +353,22 @@ on post-fs-data
     # Avoid predictable entropy pool. Carry over entropy from previous boot.
     copy /data/system/entropy.dat /dev/urandom
 
+    # Create dump dir and collect dumps.
+    # Do this before we mount cache so eventually we can use cache for
+    # storing dumps on platforms which do not have a dedicated dump partition.
+    mkdir /data/dontpanic 0750 root log
+
+    # Collect apanic data, free resources and re-arm trigger
+    copy /proc/apanic_console /data/dontpanic/apanic_console
+    chown root log /data/dontpanic/apanic_console
+    chmod 0640 /data/dontpanic/apanic_console
+
+    copy /proc/apanic_threads /data/dontpanic/apanic_threads
+    chown root log /data/dontpanic/apanic_threads
+    chmod 0640 /data/dontpanic/apanic_threads
+
+    write /proc/apanic_console 1
+
     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/bluedroid 02770 bluetooth net_bt_stack
@@ -423,7 +439,8 @@ on post-fs-data
 
     # create directory for DRM plug-ins - give drm the read/write access to
     # the following directory.
-    mkdir /data/drm 0770 drm drm
+    mkdir /data/drm 0770 drm drm ####
+    # mkdir /data/drm 0774 drm system ####
 
     # create directory for MediaDrm plug-ins - give drm the read/write access to
     # the following directory.
@@ -691,6 +708,19 @@ on property:persist.sys.mykloggerd=false
 service mykloggerd /system/bin/logwrapper /system/bin/cat /proc/kmsg
     class main
     disabled
+
+chmod 666 /dev/als_ps
+
+chmod 666 /dev/fm
+ 
+
+chmod 666 /dev/fpc1020
+
+service powerlogd /system/bin/powerlogd
+class core
+socket powerlogd stream 0600 system system
+socket powerlogdr seqpacket 0600 system system
+socket powerlogdw dgram 0220 system system
 
 # init.d support
 service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d

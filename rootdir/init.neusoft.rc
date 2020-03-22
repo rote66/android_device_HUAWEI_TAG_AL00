@@ -1,0 +1,87 @@
+on property:vold.decrypt=trigger_restart_framework
+    setprop soter.teei.vold.decrypt OK
+# begin,[microtrust] [zhuzhen] [add] [start teei daemon ] [2015/05/29]
+
+on post-fs-data
+    write /proc/bootprof "start teei cfg (on post-fs-data)"
+
+    chmod 0666 /dev/teei_client
+    chown system system /dev/teei_client
+    chmod 0660 /dev/teei_config
+    chown system system /dev/teei_config
+    chmod 0660 /dev/tz_vfs
+    chown system system /dev/tz_vfs
+    chmod 0666 /dev/teei_fp
+    chown system /dev/teei_fp
+    chmod 0660 /dev/emmcrpmb0
+    chown system system /dev/emmcrpmb0
+    write /proc/bootprof "start teei cfg end (on post-fs-data)"
+
+#/sys/devices/platform/fpc_irq.0/setup/
+	chmod 0220 /sys/devices/platform/fpc_irq.0/setup/click_event
+	chown root system /sys/devices/platform/fpc_irq.0/setup/click_event
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/dst_pid
+	chown root system /sys/devices/platform/fpc_irq.0/setup/dst_pid
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/dst_signo
+	chown root system /sys/devices/platform/fpc_irq.0/setup/dst_signo
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/enabled
+	chown root system /sys/devices/platform/fpc_irq.0/setup/enabled
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/intr_enabled
+	chown root system /sys/devices/platform/fpc_irq.0/setup/intr_enabled
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/tac_init
+	chown root system /sys/devices/platform/fpc_irq.0/setup/tac_init
+
+	chmod 0220 /sys/devices/platform/fpc_irq.0/setup/test_trigger
+	chown root system /sys/devices/platform/fpc_irq.0/setup/test_trigger
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/setup/unlock_enabled
+	chown root system /sys/devices/platform/fpc_irq.0/setup/unlock_enabled
+
+#/sys/devices/platform/fpc_irq.0/pm/
+	chmod 0220 /sys/devices/platform/fpc_irq.0/pm/hw_reset
+	chown root system /sys/devices/platform/fpc_irq.0/pm/hw_reset
+
+	chmod 0220 /sys/devices/platform/fpc_irq.0/pm/notify_ack
+	chown root system /sys/devices/platform/fpc_irq.0/pm/notify_ack
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/pm/notify_enabled
+	chown root system /sys/devices/platform/fpc_irq.0/pm/notify_enabled
+
+	chmod 0440 /sys/devices/platform/fpc_irq.0/pm/state
+	chown root system /sys/devices/platform/fpc_irq.0/pm/state
+
+	chmod 0660 /sys/devices/platform/fpc_irq.0/pm/supply_on
+	chown root system /sys/devices/platform/fpc_irq.0/pm/supply_on
+
+	chmod 0220 /sys/devices/platform/fpc_irq.0/pm/wakeup_req
+	chown root system /sys/devices/platform/fpc_irq.0/pm/wakeup_req
+
+# begin,[microtrust] [zhuzhen] [add] [start teei daemon ] [2015/05/29]
+on boot
+    write /proc/bootprof "start teei_daemon (on boot)"
+    start teei_daemon
+    write /proc/bootprof "start teei_daemon end (on boot)"
+# end,  [microtrust] [zhuzhen] [add] [start teei daemon ] [2015/05/29]
+# teei service daemon
+service teei_daemon /system/bin/teei_daemon
+    class core
+    user root
+    group system
+    disabled
+   # oneshot
+# begin,[microtrust] [zhuzhen] [add] [start teei daemon ] [2015/05/29]
+on property:soter.teei.init=INIT_OK
+    start init_thh_service
+
+service init_thh_service /system/bin/init_thh init
+    class core
+    user root
+    group system
+    disabled
+    oneshot
+# end,  [microtrust] [zhuzhen] [add] [start teei daemon ] [2015/05/29]

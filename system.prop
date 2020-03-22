@@ -1,7 +1,7 @@
 #
-# system.prop for ono
+# system.prop for AL00
 #
-# from device/ginreen/ginr6735_65c_l1/system.prop
+# from device/huaqin/hq6753_66t_b2c_l1/system.prop
 #
 #
 # system.prop for generic sdk
@@ -47,10 +47,27 @@ ro.zygote.preload.enable=0
 # temporary enables NAV bar (soft keys)
 qemu.hw.mainkeys=0
 
+# USB MTP WHQL
+ro.sys.usb.mtp.whql.enable=0
+
+# Power off opt in IPO
+sys.ipo.pwrdncap=2
+
+ro.sys.usb.storage.type=mtp,mass_storage
+
+# USB BICR function
+ro.sys.usb.bicr=yes
+
+# USB Charge only function
+ro.sys.usb.charging.only=yes
+
 ro.kernel.zio=38,108,105,16
 #ro.kernel.qemu=1
 #ro.kernel.qemu.gles=0
 #ro.boot.selinux=disable
+
+# SoundRecorder save file to sdcard
+persist.sys.primarysd=0
 
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
@@ -67,4 +84,177 @@ ro.mtk_perfservice_support=1
 
 persist.logd.logpersistd=logcatd
 
+#ril addon
 ro.telephony.default_network=9
+persist.radio.default.sim=0
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
+persist.md.perm.checked=to_upgrade
+persist.radio.multisim.config=dsds 
+ro.mtk_lte_support=1 
+ro.telephony.ril_class=MT6735 
+ro.telephony.ril.config=fakeiccid 
+ro.telephony.sim.count=2 
+persist.gemini.sim_num=2 
+ro.gemini.smart_sim_switch=false
+ril.specific.sm_cause=0
+bgw.current3gband=0
+ro.mediatek.gemini_support=true
+ril.external.md=1
+ril.current.share_modem=2
+ril.first.md=1
+ril.flightmode.poweroffMD=1
+ril.telephony.mode=0
+ril.radiooff.poweroffMD=0
+ro.mtk_lte_support=1
+ro.sim_refresh_reset_by_modem=1
+ro.sim_me_lock_mode=0
+ro.com.android.mobiledata=false
+persist.radio.mobile.data=0,0
+ro.dual.sim.phone=true
+gsm.slot1.num.pin1=3
+gsm.slot2.num.pin1=3
+gsm.slot1.num.puk1=10
+gsm.slot2.num.puk1=10
+keyguard.no_require_sim=true
+ro.show.imei.meid=1
+
+#Ril C2K
+#ro.mtk_c2k_support=1
+#persist.radio.flashless.fsm=0
+#persist.radio.flashless.fsm_cst=0
+#persist.radio.flashless.fsm_rw=0
+#ro.cdma.cfu.enable=*72
+#ro.cdma.cfu.disable=*720
+#ro.cdma.cfb.enable=*90
+#ro.cdma.cfb.disable=*900
+#ro.cdma.cfnr.enable=*92
+#ro.cdma.cfnr.disable=*920
+#ro.cdma.cfdf.enable=*68
+#ro.cdma.cfdf.disable=*680
+#ro.cdma.cfall.disable=*730
+#ro.cdma.cw.enable=*74
+#ro.cdma.cw.disable=*740
+#ro.mtk_svlte_support=1
+#mtk.md1.status=stop
+#mtk.md3.status=stop
+#ro.c2k.irat.support=1
+#ro.mtk.c2k.slot2.support=1
+#ro.mtk_shared_sdcard=1
+#ro.mtk_enable_md1=1
+#ro.mtk_enable_md3=1
+#ro.mtk_flight_mode_power_off_md=1
+
+#volte and other
+ro.mtk_multisim_ringtone=1
+ro.mtk_world_phone=1
+ro.mtk_world_phone_policy=0
+#ro.mtk_ims_support=1
+#ro.mtk_volte_support=1
+#persist.mtk.volte.enable=1
+#persist.dbg.volte_avail_ovr=1
+#ro.mtk_voice_extension_support=1
+ro.mtk_wfd_support=1
+wfd.dummy.enable=1
+
+#mediatek
+ro.mediatek.chip_ver=S01
+ro.mediatek.version.release=TAG-AL00C92B168
+ro.mediatek.platform=MT6735
+ro.mtk_cam_lomo_support=1
+ro.mtk_gps_support=1 
+ro.mtk_agps_app=1 
+persist.debug.xlog.enable=1 
+drm.service.enabled=true
+fmradio.driver.enable=1
+dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
+mediatek.wlan.chip=CONSYS_MT6735
+mediatek.wlan.module.postfix=_consys_mt6735
+ro.frp.pst=/dev/block/platform/mtk-msdc.0/by-name/frp
+ro.ct6m_support=1
+ro.mediatek.version.branch=L1.MP3.EE.WFC.DEV
+ro.mediatek.version.sdk=4
+ro.mtk_gemini_support=1
+ro.mtk_audio_profiles=1
+ro.mtk_audenh_support=1
+ro.mtk_lossless_bt_audio=1
+ro.mtk_besloudness_support=1
+ro.mtk_bessurround_support=1
+ro.mtk_gemini_enhancement=1
+ro.mtk_wapi_support=1
+ro.mtk_bt_support=1
+ro.mtk_wappush_support=1
+ro.mtk_agps_app=1
+ro.mtk_voice_ui_support=1
+ro.mtk_voice_contact_support=1
+ro.mtk_wlan_support=1
+ro.mtk_ipo_support=1
+ro.mtk_gps_support=1
+ro.mtk_omacp_support=1
+ro.mtk_search_db_support=1
+ro.mtk_dialer_search_support=1
+ro.mtk_dhcpv6c_wifi=1
+ro.have_aacencode_feature=1
+ro.mtk_fd_support=1
+ro.mtk_widevine_drm_l3_support=1
+ro.mtk_eap_sim_aka=1
+ro.mtk_fm_recording_support=1
+ro.mtk_audio_ape_support=1
+ro.mtk_flv_playback_support=1
+ro.mtk_wmv_playback_support=1
+ro.mtk_send_rr_support=1
+ro.mtk_emmc_support=1
+ro.mtk_tetheringipv6_support=1
+ro.mtk_phone_number_geo=1
+ro.mtk_aal_support=1
+ro.mtk_pq_support=2
+ro.mtk_miravision_support=1
+ro.mtk_miravision_image_dc=1
+ro.mtk_wifi_mcc_support=1
+ro.mtk_system_update_support=1
+ro.mtk_thumbnail_play_support=1
+ro.mtk_bip_scws=1
+ro.mtk_perfservice_support=1
+ro.mtk_cta_set=1
+ro.mtk_devreg_app=1
+ro.mtk_ct4greg_app=1
+ro.mtk_antibricking_level=2
+ro.mtk_cam_mfb_support=3
+ro.mtk_slow_motion_support=1
+ro.mtk_cam_mav_support=1
+ro.mtk_cam_vfb=1
+ro.mtk_live_photo_support=1
+ro.mtk_motion_track_support=1
+ro.mtk_bg_power_saving_support=1
+ro.mtk_bg_power_saving_ui=1
+ro.have_aee_feature=1
+ro.mediatek.project.path=device/huaqin/hq6753_66t_b2c_l1
+ro.mtk_neusoft_teei_support=1
+persist.mtk.wcn.combo.chipid=-1
+persist.mtk.wcn.fwlog.status=no
+service.wcn.driver.ready=no
+persist.mtk.combo.coredump=no
+persist.meta.dumpdata=0
+ro.mtk_md_sbp_custom_value=1
+ro.config.hw_open_session=false
+ro.config.is_subid_needswitch=true
+ro.config.hwft_MatchNum=11
+ro.hq_wlan_direct_al=1
+ro.hq.wifi.ap.name.pwd=1
+ro.cofig.onlinemusic.enabled=true
+persist.sys.hq.arabic.numerals=0
+ro.hq.doubleclock.timezone=1
+ro.config.hw_voicerecord=yes
+ro.huawei.selfregister.report=true
+ro.config.hw_needsetheight=true
+ro.config.qcom_operator_show=true
+ro.config.show_edge_icon=true
+ro.config.hw_dsda=true
+ro.config.roam_funel_show=false
+ro.config.hw_coop_regist=true
+ro.config.hw_coop_subid=true
+persist.sys.bv=0.7
+ro.sys.project.huawei=AL
+ro.config.fp_tip_hide_abnormal=true
