@@ -129,10 +129,6 @@ PRODUCT_COPY_FILES += \
     prebuilts/ndk/current/sources/cxx-stl/stlport/libs/arm64-v8a/libstlport_shared.so:system/lib64/libstlport.so \
     prebuilts/ndk/current/sources/cxx-stl/stlport/libs/armeabi-v7a/libstlport_shared.so:system/lib/libstlport.so
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-#$(call inherit-product, build/target/product/aosp_arm64.mk)
-
 # These additionals go to /default.prop
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
 ro.allow.mock.location=1 \

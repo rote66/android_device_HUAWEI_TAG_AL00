@@ -1,10 +1,19 @@
 #!/bin/bash
 cd ../../../..
+cd bionic
+patch -p1 < ../device/HUAWEI/TAG_AL00/patches/bionic_libc.patch
+cd .. 
 cd frameworks/av
 git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/0001-Disable-usage-of-get_capture_position.patch 
+patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_camera.patch 
+patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_libmedia.patch 
+patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_mediaprofile.patch 
 cd ../..
 cd frameworks/native
-git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_AL00/patches/frameworks_native_ui.patch
+git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_AL00/patches/frameworks_native.patch
+cd ../..
+cd frameworks/base
+patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_base.patch
 cd ../..
 cd system/core
 git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_AL00/patches/system_core/0001-Remove-CAP_SYS_NICE-from-surfaceflinger.patch
