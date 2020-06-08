@@ -8,6 +8,7 @@ git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_A
 patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_camera.patch 
 patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_libmedia.patch 
 patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/frameworks_av_mediaprofile.patch 
+patch -p1 < ../../device/HUAWEI/TAG_AL00/patches/frameworks_av/0006-fix-access-wvm-to-ReadOptions.patch 
 cd ../..
 cd frameworks/native
 git apply --ignore-space-change --ignore-whitespace -v ../../device/HUAWEI/TAG_AL00/patches/frameworks_native.patch

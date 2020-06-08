@@ -4,8 +4,6 @@ VENDOR_PATH := vendor/HUAWEI/TAG_AL00
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
-USE_CAMERA_STUB := true
-
 # inherit from the proprietary version
 -include $(VENDOR_PATH)/BoardConfigVendor.mk
 -include $(DEVICE_PATH)/RecoveryConfig.mk
@@ -108,6 +106,10 @@ PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 MTK_HWC_SUPPORT := yes
 MTK_HWC_VERSION := 1.4.1
 
+# Cam
+USE_CAMERA_STUB := true
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
 # CyanogenMod Hardware Hooks
 BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/cmhw/
 
@@ -120,6 +122,9 @@ BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 POLICYVERS := 29
 
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
+
+#linker
+#LINKER_FORCED_SHIM_LIBS += /system/vendor/bin/program_binary_service|libmtk_symbols.so
 
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 

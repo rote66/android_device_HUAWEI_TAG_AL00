@@ -8,7 +8,7 @@ LOCAL_SRC_FILES := \
     icu55.c \
     icu53.c \
     net_utils.c \
-    program_binary_builder.cpp \
+    program_binary_service.cpp \
     ssl.c
 
 # only for 32bit libraries

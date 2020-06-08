@@ -15,16 +15,15 @@
  */
 
 extern "C" {
-    int _ZN7android10uirenderer12ProgramAtlas14createProgramsEPlPi() {
+    int _ZNK7android21IProgramBinaryService22getInterfaceDescriptorEv() {
         return 0;
     }
-
-    int _ZN7android10uirenderer12ProgramAtlas28loadProgramBinariesAndDeleteEPliPvi() {
+    int _ZN7android21IProgramBinaryService10descriptorE() {
         return 0;
     }
-
-    int _ZN7android10uirenderer12ProgramAtlas9terminateEv() {
+    int _ZN7android21IProgramBinaryServiceD2Ev() {
         return 0;
     }
 }
+
  
